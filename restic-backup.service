@@ -1,0 +1,9 @@
+[Unit]
+Description=Restic Server Backup
+
+[Service]
+Type=simple
+Environment=RESTIC_PASSWORD=ResticRepoPW
+Environment=RESTIC_REPOSITORY=sftp:BackupNode:/backup/dir
+Environment=XDG_CACHE_HOME=/root/.cache/restic
+ExecStart=/usr/bin/restic backup /to/backup/dir
